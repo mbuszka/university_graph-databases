@@ -1,0 +1,7 @@
+SELECT ?thing ?thingLabel ?presidentLabel
+WHERE {
+  ?thing wdt:P138 ?president.
+  ?president wdt:P39 wd:Q1054799.
+  
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "pl". } 
+}

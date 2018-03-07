@@ -1,0 +1,14 @@
+# People of polish citizenship who died at altitude of at least 8000m
+SELECT ?person ?personLabel ?meters
+WHERE
+{    
+  # ?person wdt:P19/wdt:P17 wd:Q36.
+  ?person wdt:P27 wd:Q36.
+  ?person wdt:P20/p:P2044 [
+    psn:P2044/wikibase:quantityAmount ?meters
+  ]
+  FILTER(?meters >= 8000).
+  SERVICE wikibase:label {
+    bd:serviceParam wikibase:language "en" .
+  }
+}

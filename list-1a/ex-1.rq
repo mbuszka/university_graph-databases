@@ -1,0 +1,11 @@
+# Motto of each state in US
+SELECT ?state ?stateLabel ?motto
+WHERE
+{    
+  ?state wdt:P31 wd:Q35657.
+  OPTIONAL { ?state wdt:P1451 ?motto }.
+  
+  SERVICE wikibase:label {
+    bd:serviceParam wikibase:language "en" .
+  }
+}

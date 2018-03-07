@@ -1,0 +1,7 @@
+SELECT ?pope ?popeLabel
+WHERE {
+  ?pope wdt:P39 wd:Q19546.
+  ?pope wdt:P40/wdt:P39 wd:Q19546.
+  
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+  }

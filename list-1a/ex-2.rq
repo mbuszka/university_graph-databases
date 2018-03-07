@@ -1,0 +1,13 @@
+# Noblist's who were born in Wrocław
+SELECT ?person ?personLabel
+WHERE
+{    
+  ?person wdt:P19 wd:Q1799.
+  # all scientists
+  # ?person wdt:P106/wdt:P279* wd:Q901.
+  ?person wdt:P166/wdt:P31* wd:Q7191
+  
+  SERVICE wikibase:label {
+    bd:serviceParam wikibase:language "en" .
+  }
+}

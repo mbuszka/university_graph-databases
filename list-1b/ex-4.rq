@@ -1,0 +1,13 @@
+SELECT ?citizenship ?citizenshipLabel (COUNT(?politician) AS ?count)
+WHERE {
+  ?politician wdt:P106 wd:Q82955.
+  ?politician rdfs:label ?politicianLabel.
+  FILTER(LANG(?politicianLabel) = "pl").
+  ?politician wdt:P27 wd:Q36.
+  ?politician wdt:P27 ?citizenship.
+  FILTER(?citizenship != wd:Q36)
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+  
+  }
+GROUP BY ?citizenship ?citizenshipLabel
+ORDER BY DESC(?count)

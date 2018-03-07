@@ -1,0 +1,15 @@
+# Polish cities with most scientists born
+SELECT ?cityLabel (COUNT(?person) AS ?count)
+WHERE
+{    
+  # all scientists
+  ?person wdt:P106/wdt:P279* wd:Q901.
+  ?person wdt:P19 ?city.
+  ?city wdt:P31 wd:Q515.
+  ?city wdt:P17 wd:Q36.
+
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "pl". }.
+}
+GROUP BY ?city ?cityLabel
+ORDER BY DESC (COUNT(?person))
+LIMIT 10

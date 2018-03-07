@@ -1,0 +1,8 @@
+SELECT ?pope ?popeLabel
+WHERE {
+  ?pope wdt:P39 wd:Q19546.
+  OPTIONAL { ?pope p:P40 ?stmt. }
+  FILTER (!BOUND(?stmt) || EXISTS { ?stmt rdf:type wdno:P40. })
+
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+  }
