@@ -1,0 +1,3 @@
+#!/bin/sh
+
+bash apache-tinkerpop-gremlin-console-3.3.2/bin/gremlin.sh $@
