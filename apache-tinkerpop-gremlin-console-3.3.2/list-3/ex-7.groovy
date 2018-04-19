@@ -1,9 +1,7 @@
 g.V().
-  has('country', 'PL').toList().
-  collect({ v -> 
-    [ code: v.value('code')
-    , out: g.V(v).out().count().next()
-    , in: g.V(v).in().count().next()
-    ]}).sort { 
-      it.in
-    }
+  has('country', 'PL').
+  order().by(__.in().count(), decr).
+  project('code', 'out', 'in').
+  by('code').
+  by(__.out().count()).
+  by(__.in().count())
